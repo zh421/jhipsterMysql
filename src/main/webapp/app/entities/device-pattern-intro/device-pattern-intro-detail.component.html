@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="devicePatternIntro">
+            <h2><span jhiTranslate="aIoTapplicationApp.devicePatternIntro.detail.title">Device Pattern Intro</span> {{ devicePatternIntro.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="aIoTapplicationApp.devicePatternIntro.devicepatternId">Devicepattern Id</span></dt>
+                <dd>
+                    <span>{{ devicePatternIntro.devicepatternId }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.devicePatternIntro.devicepatternCode">Devicepattern Code</span></dt>
+                <dd>
+                    <span>{{ devicePatternIntro.devicepatternCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.devicePatternIntro.memo">Memo</span></dt>
+                <dd>
+                    <span>{{ devicePatternIntro.memo }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.devicePatternIntro.creuser">Creuser</span></dt>
+                <dd>
+                    <span>{{ devicePatternIntro.creuser }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.devicePatternIntro.cretime">Cretime</span></dt>
+                <dd>
+                    <span>{{ devicePatternIntro.cretime }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.devicePatternIntro.moduser">Moduser</span></dt>
+                <dd>
+                    <span>{{ devicePatternIntro.moduser }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.devicePatternIntro.modtime">Modtime</span></dt>
+                <dd>
+                    <span>{{ devicePatternIntro.modtime }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/device-pattern-intro', devicePatternIntro.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

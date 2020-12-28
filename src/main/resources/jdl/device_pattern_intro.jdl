@@ -1,0 +1,15 @@
+entity DevicePatternIntro
+{  //設備模組說明                                                 //內碼
+   devicepatternId     String         maxlength(100)        required   //設備模組ID
+   devicepatternCode   String         maxlength(100)        required   //設備模組代碼
+   memo                String         maxlength(255)                   //說明
+   creuser             String         maxlength(140)        required	  //建立者
+	cretime             ZonedDateTime                        required	  //建立時間
+	moduser             String         maxlength(140)        required	  //最後異動者
+	modtime             ZonedDateTime                        required	  //最後異動時間
+
+}
+paginate * with pagination
+filter   *
+dto      * with mapstruct
+service  * with serviceClass
