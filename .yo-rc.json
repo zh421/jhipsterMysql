@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "aiot.java",
+      "nativeLanguage": "zh-tw"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "monolith",
+    "baseName": "AIoTapplication",
+    "packageName": "aiot.java",
+    "packageFolder": "aiot/java",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZGY1ZjRjMzBkN2U5ZGJiMTNlMGRiOTQzM2JkZDA3YTRlZDk2YjBjMDFhNDU4ZWExYTJhZWZmZmZjNmEzOTQ4MTNkZDQ3MzdkZWM1MmJhNDlhZWQyYjU0Mzg0NTgwMDMyY2U3ZTdlM2MwODNkNmM0OGEzZjdhYWNjMGI1OTgwMGY=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1609168738792,
+    "testFrameworks": ["protractor"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "zh-tw",
+    "languages": ["zh-tw"],
+    "blueprints": []
+  }
+}
