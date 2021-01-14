@@ -26,7 +26,15 @@
         }
       },
       "prefix": "jhi",
-      "architect": {}
+      "architect": {
+        "serve": {
+          "options": {
+            "sslKey": "<relative path from angular.json>/server.key",
+            "sslCert": "<relative path from angular.json>/server.crt",
+            "proxyConfig": "proxy.conf.json"
+          }
+        }
+      }
     }
   },
   "defaultProject": "a-io-tapplication",

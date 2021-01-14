@@ -71,6 +71,14 @@ spring:
 
 server:
   port: 8080
+  #  http2:
+  #    enabled: true
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: classpath:config/tls/keystore.p12
+    key-store-password: engineerdvd
+    key-alias: tomcat
 
 # ===================================================================
 # JHipster specific properties
