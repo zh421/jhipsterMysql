@@ -11,7 +11,12 @@ import { AccountService } from 'app/core/auth/account.service';
 })
 export class MainComponent implements OnInit {
   private renderer: Renderer2;
-
+  public chatPoint = (window as any).Intercom('boot', {
+    app_id: 'ppoa99xz',
+    name: '雅婷', // Full name
+    email: 'test123@gmail.com', // Email address
+    created_at: new Date()
+  });
   constructor(
     private accountService: AccountService,
     private titleService: Title,
