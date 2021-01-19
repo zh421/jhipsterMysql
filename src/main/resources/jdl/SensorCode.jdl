@@ -1,0 +1,13 @@
+entity SensorCode
+{	// 感測元件代碼檔										            //內碼
+	scCode        String        maxlength(60)       required     //感測元件代碼
+	scName        String        maxlength(60)       required 	 //感測元件名稱
+	scCretime     ZonedDateTime  	                required     //建立時間
+	scCreid       String        maxlength(255)      required 	 //建立者ID
+	scModtime     ZonedDateTime  	                required     //更新時間
+	scModid       String        maxlength(255)      required     //更新者ID
+}
+paginate * with pagination
+filter   *
+dto      * with mapstruct
+service  * with serviceClass

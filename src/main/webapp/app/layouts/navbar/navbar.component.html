@@ -45,6 +45,12 @@
                             <span jhiTranslate="global.menu.entities.eventStatcode">Event Statcode</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="sensor-code" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.sensorCode">Sensor Code</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

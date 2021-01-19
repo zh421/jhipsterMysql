@@ -15,6 +15,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'event-statcode',
         loadChildren: () => import('./event-statcode/event-statcode.module').then(m => m.AIoTapplicationEventStatcodeModule)
+      },
+      {
+        path: 'sensor-code',
+        loadChildren: () => import('./sensor-code/sensor-code.module').then(m => m.AIoTapplicationSensorCodeModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

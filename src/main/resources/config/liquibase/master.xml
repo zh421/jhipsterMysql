@@ -17,6 +17,7 @@
     <include file="config/liquibase/changelog/20210119050100_added_entity_DeviceCode.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210119051300_added_entity_EventInter.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210119051900_added_entity_EventStatcode.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210119052100_added_entity_SensorCode.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

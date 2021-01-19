@@ -10,6 +10,7 @@
         "deviceCode": "Device Code",
         "eventInter": "Event Inter",
         "eventStatcode": "Event Statcode",
+        "sensorCode": "Sensor Code",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
