@@ -1,0 +1,22 @@
+entity Unit
+{	// 單位基本檔										            //內碼
+	unitUcCode       String		   maxlength(60)       required     //單位類別代碼
+	unitCode         String		   maxlength(50)       required 	//單位代碼
+	unitName         String        maxlength(60)       required 	//單位名稱
+	unitAddr         String        maxlength(255)      required     //單位地址
+	unitLongitude    String		   maxlength(10)	   required 	//單位經度
+	unitLatitude     String		   maxlength(10)	   required 	//單位緯度
+	unitPic          String		   maxlength(50)	   required     //負責人
+	unitPhone        String        maxlength(20)       required 	//聯絡電話
+	unitEmail        String        maxlength(255)      required 	//EMAIL
+	unitCretime      ZonedDateTime  	               required     //建立時間
+	unitCreid        String        maxlength(255)      required 	//建立者ID
+	unitModtime      ZonedDateTime  	               required     //更新時間
+	unitModid        String        maxlength(255)      required     //更新者ID
+	unitLogip        String        maxlength(30)       required 	//登入設備IP
+    unitSignDate     ZonedDateTime  	               required     //登記時間
+}
+paginate * with pagination
+filter   *
+dto      * with mapstruct
+service  * with serviceClass

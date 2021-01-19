@@ -1,0 +1,124 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-sensor-code-heading" jhiTranslate="aIoTapplicationApp.sensorCode.home.createOrEditLabel">Create or edit a Sensor Code</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.sensorCode.scCode" for="field_scCode">Sc Code</label>
+                    <input type="text" class="form-control" name="scCode" id="field_scCode"
+                           formControlName="scCode"/>
+                    <div *ngIf="editForm.get('scCode')!.invalid && (editForm.get('scCode')!.dirty || editForm.get('scCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('scCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('scCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.sensorCode.scName" for="field_scName">Sc Name</label>
+                    <input type="text" class="form-control" name="scName" id="field_scName"
+                           formControlName="scName"/>
+                    <div *ngIf="editForm.get('scName')!.invalid && (editForm.get('scName')!.dirty || editForm.get('scName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('scName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('scName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.sensorCode.scCretime" for="field_scCretime">Sc Cretime</label>
+                    <div class="d-flex">
+                        <input id="field_scCretime" type="datetime-local" class="form-control" name="scCretime" formControlName="scCretime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('scCretime')!.invalid && (editForm.get('scCretime')!.dirty || editForm.get('scCretime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('scCretime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('scCretime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.sensorCode.scCreid" for="field_scCreid">Sc Creid</label>
+                    <input type="text" class="form-control" name="scCreid" id="field_scCreid"
+                           formControlName="scCreid"/>
+                    <div *ngIf="editForm.get('scCreid')!.invalid && (editForm.get('scCreid')!.dirty || editForm.get('scCreid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('scCreid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('scCreid')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.sensorCode.scModtime" for="field_scModtime">Sc Modtime</label>
+                    <div class="d-flex">
+                        <input id="field_scModtime" type="datetime-local" class="form-control" name="scModtime" formControlName="scModtime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('scModtime')!.invalid && (editForm.get('scModtime')!.dirty || editForm.get('scModtime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('scModtime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('scModtime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.sensorCode.scModid" for="field_scModid">Sc Modid</label>
+                    <input type="text" class="form-control" name="scModid" id="field_scModid"
+                           formControlName="scModid"/>
+                    <div *ngIf="editForm.get('scModid')!.invalid && (editForm.get('scModid')!.dirty || editForm.get('scModid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('scModid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('scModid')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,269 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-unit-heading" jhiTranslate="aIoTapplicationApp.unit.home.createOrEditLabel">Create or edit a Unit</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitUcCode" for="field_unitUcCode">Unit Uc Code</label>
+                    <input type="text" class="form-control" name="unitUcCode" id="field_unitUcCode"
+                           formControlName="unitUcCode"/>
+                    <div *ngIf="editForm.get('unitUcCode')!.invalid && (editForm.get('unitUcCode')!.dirty || editForm.get('unitUcCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitUcCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitUcCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitCode" for="field_unitCode">Unit Code</label>
+                    <input type="text" class="form-control" name="unitCode" id="field_unitCode"
+                           formControlName="unitCode"/>
+                    <div *ngIf="editForm.get('unitCode')!.invalid && (editForm.get('unitCode')!.dirty || editForm.get('unitCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitName" for="field_unitName">Unit Name</label>
+                    <input type="text" class="form-control" name="unitName" id="field_unitName"
+                           formControlName="unitName"/>
+                    <div *ngIf="editForm.get('unitName')!.invalid && (editForm.get('unitName')!.dirty || editForm.get('unitName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitAddr" for="field_unitAddr">Unit Addr</label>
+                    <input type="text" class="form-control" name="unitAddr" id="field_unitAddr"
+                           formControlName="unitAddr"/>
+                    <div *ngIf="editForm.get('unitAddr')!.invalid && (editForm.get('unitAddr')!.dirty || editForm.get('unitAddr')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitAddr')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitAddr')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitLongitude" for="field_unitLongitude">Unit Longitude</label>
+                    <input type="text" class="form-control" name="unitLongitude" id="field_unitLongitude"
+                           formControlName="unitLongitude"/>
+                    <div *ngIf="editForm.get('unitLongitude')!.invalid && (editForm.get('unitLongitude')!.dirty || editForm.get('unitLongitude')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitLongitude')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitLongitude')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 10 }">
+                        This field cannot be longer than 10 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitLatitude" for="field_unitLatitude">Unit Latitude</label>
+                    <input type="text" class="form-control" name="unitLatitude" id="field_unitLatitude"
+                           formControlName="unitLatitude"/>
+                    <div *ngIf="editForm.get('unitLatitude')!.invalid && (editForm.get('unitLatitude')!.dirty || editForm.get('unitLatitude')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitLatitude')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitLatitude')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 10 }">
+                        This field cannot be longer than 10 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitPic" for="field_unitPic">Unit Pic</label>
+                    <input type="text" class="form-control" name="unitPic" id="field_unitPic"
+                           formControlName="unitPic"/>
+                    <div *ngIf="editForm.get('unitPic')!.invalid && (editForm.get('unitPic')!.dirty || editForm.get('unitPic')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitPic')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitPic')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitPhone" for="field_unitPhone">Unit Phone</label>
+                    <input type="text" class="form-control" name="unitPhone" id="field_unitPhone"
+                           formControlName="unitPhone"/>
+                    <div *ngIf="editForm.get('unitPhone')!.invalid && (editForm.get('unitPhone')!.dirty || editForm.get('unitPhone')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitPhone')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitPhone')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitEmail" for="field_unitEmail">Unit Email</label>
+                    <input type="text" class="form-control" name="unitEmail" id="field_unitEmail"
+                           formControlName="unitEmail"/>
+                    <div *ngIf="editForm.get('unitEmail')!.invalid && (editForm.get('unitEmail')!.dirty || editForm.get('unitEmail')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitEmail')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitEmail')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitCretime" for="field_unitCretime">Unit Cretime</label>
+                    <div class="d-flex">
+                        <input id="field_unitCretime" type="datetime-local" class="form-control" name="unitCretime" formControlName="unitCretime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('unitCretime')!.invalid && (editForm.get('unitCretime')!.dirty || editForm.get('unitCretime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitCretime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('unitCretime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitCreid" for="field_unitCreid">Unit Creid</label>
+                    <input type="text" class="form-control" name="unitCreid" id="field_unitCreid"
+                           formControlName="unitCreid"/>
+                    <div *ngIf="editForm.get('unitCreid')!.invalid && (editForm.get('unitCreid')!.dirty || editForm.get('unitCreid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitCreid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitCreid')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitModtime" for="field_unitModtime">Unit Modtime</label>
+                    <div class="d-flex">
+                        <input id="field_unitModtime" type="datetime-local" class="form-control" name="unitModtime" formControlName="unitModtime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('unitModtime')!.invalid && (editForm.get('unitModtime')!.dirty || editForm.get('unitModtime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitModtime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('unitModtime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitModid" for="field_unitModid">Unit Modid</label>
+                    <input type="text" class="form-control" name="unitModid" id="field_unitModid"
+                           formControlName="unitModid"/>
+                    <div *ngIf="editForm.get('unitModid')!.invalid && (editForm.get('unitModid')!.dirty || editForm.get('unitModid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitModid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitModid')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitLogip" for="field_unitLogip">Unit Logip</label>
+                    <input type="text" class="form-control" name="unitLogip" id="field_unitLogip"
+                           formControlName="unitLogip"/>
+                    <div *ngIf="editForm.get('unitLogip')!.invalid && (editForm.get('unitLogip')!.dirty || editForm.get('unitLogip')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitLogip')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitLogip')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.unit.unitSignDate" for="field_unitSignDate">Unit Sign Date</label>
+                    <div class="d-flex">
+                        <input id="field_unitSignDate" type="datetime-local" class="form-control" name="unitSignDate" formControlName="unitSignDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('unitSignDate')!.invalid && (editForm.get('unitSignDate')!.dirty || editForm.get('unitSignDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unitSignDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('unitSignDate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

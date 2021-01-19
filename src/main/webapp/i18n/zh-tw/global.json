@@ -11,6 +11,7 @@
         "eventInter": "Event Inter",
         "eventStatcode": "Event Statcode",
         "sensorCode": "Sensor Code",
+        "unit": "Unit",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

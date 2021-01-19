@@ -1,0 +1,86 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="unit">
+            <h2><span jhiTranslate="aIoTapplicationApp.unit.detail.title">Unit</span> {{ unit.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitUcCode">Unit Uc Code</span></dt>
+                <dd>
+                    <span>{{ unit.unitUcCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitCode">Unit Code</span></dt>
+                <dd>
+                    <span>{{ unit.unitCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitName">Unit Name</span></dt>
+                <dd>
+                    <span>{{ unit.unitName }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitAddr">Unit Addr</span></dt>
+                <dd>
+                    <span>{{ unit.unitAddr }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitLongitude">Unit Longitude</span></dt>
+                <dd>
+                    <span>{{ unit.unitLongitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitLatitude">Unit Latitude</span></dt>
+                <dd>
+                    <span>{{ unit.unitLatitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitPic">Unit Pic</span></dt>
+                <dd>
+                    <span>{{ unit.unitPic }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitPhone">Unit Phone</span></dt>
+                <dd>
+                    <span>{{ unit.unitPhone }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitEmail">Unit Email</span></dt>
+                <dd>
+                    <span>{{ unit.unitEmail }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitCretime">Unit Cretime</span></dt>
+                <dd>
+                    <span>{{ unit.unitCretime }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitCreid">Unit Creid</span></dt>
+                <dd>
+                    <span>{{ unit.unitCreid }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitModtime">Unit Modtime</span></dt>
+                <dd>
+                    <span>{{ unit.unitModtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitModid">Unit Modid</span></dt>
+                <dd>
+                    <span>{{ unit.unitModid }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitLogip">Unit Logip</span></dt>
+                <dd>
+                    <span>{{ unit.unitLogip }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.unit.unitSignDate">Unit Sign Date</span></dt>
+                <dd>
+                    <span>{{ unit.unitSignDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/unit', unit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
