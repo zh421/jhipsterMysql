@@ -1,0 +1,124 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-device-code-heading" jhiTranslate="aIoTapplicationApp.deviceCode.home.createOrEditLabel">Create or edit a Device Code</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.deviceCode.dviCode" for="field_dviCode">Dvi Code</label>
+                    <input type="text" class="form-control" name="dviCode" id="field_dviCode"
+                           formControlName="dviCode"/>
+                    <div *ngIf="editForm.get('dviCode')!.invalid && (editForm.get('dviCode')!.dirty || editForm.get('dviCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dviCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dviCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.deviceCode.dviName" for="field_dviName">Dvi Name</label>
+                    <input type="text" class="form-control" name="dviName" id="field_dviName"
+                           formControlName="dviName"/>
+                    <div *ngIf="editForm.get('dviName')!.invalid && (editForm.get('dviName')!.dirty || editForm.get('dviName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dviName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dviName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.deviceCode.dviCretime" for="field_dviCretime">Dvi Cretime</label>
+                    <div class="d-flex">
+                        <input id="field_dviCretime" type="datetime-local" class="form-control" name="dviCretime" formControlName="dviCretime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dviCretime')!.invalid && (editForm.get('dviCretime')!.dirty || editForm.get('dviCretime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dviCretime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dviCretime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.deviceCode.dviCreid" for="field_dviCreid">Dvi Creid</label>
+                    <input type="text" class="form-control" name="dviCreid" id="field_dviCreid"
+                           formControlName="dviCreid"/>
+                    <div *ngIf="editForm.get('dviCreid')!.invalid && (editForm.get('dviCreid')!.dirty || editForm.get('dviCreid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dviCreid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dviCreid')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.deviceCode.dviModtime" for="field_dviModtime">Dvi Modtime</label>
+                    <div class="d-flex">
+                        <input id="field_dviModtime" type="datetime-local" class="form-control" name="dviModtime" formControlName="dviModtime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dviModtime')!.invalid && (editForm.get('dviModtime')!.dirty || editForm.get('dviModtime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dviModtime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dviModtime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.deviceCode.dviModid" for="field_dviModid">Dvi Modid</label>
+                    <input type="text" class="form-control" name="dviModid" id="field_dviModid"
+                           formControlName="dviModid"/>
+                    <div *ngIf="editForm.get('dviModid')!.invalid && (editForm.get('dviModid')!.dirty || editForm.get('dviModid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dviModid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dviModid')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

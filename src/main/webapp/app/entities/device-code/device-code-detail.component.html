@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="deviceCode">
+            <h2><span jhiTranslate="aIoTapplicationApp.deviceCode.detail.title">Device Code</span> {{ deviceCode.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="aIoTapplicationApp.deviceCode.dviCode">Dvi Code</span></dt>
+                <dd>
+                    <span>{{ deviceCode.dviCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.deviceCode.dviName">Dvi Name</span></dt>
+                <dd>
+                    <span>{{ deviceCode.dviName }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.deviceCode.dviCretime">Dvi Cretime</span></dt>
+                <dd>
+                    <span>{{ deviceCode.dviCretime }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.deviceCode.dviCreid">Dvi Creid</span></dt>
+                <dd>
+                    <span>{{ deviceCode.dviCreid }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.deviceCode.dviModtime">Dvi Modtime</span></dt>
+                <dd>
+                    <span>{{ deviceCode.dviModtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.deviceCode.dviModid">Dvi Modid</span></dt>
+                <dd>
+                    <span>{{ deviceCode.dviModid }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/device-code', deviceCode.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

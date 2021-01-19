@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="eventInter">
+            <h2><span jhiTranslate="aIoTapplicationApp.eventInter.detail.title">Event Inter</span> {{ eventInter.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninTime">Evnin Time</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninEsCode">Evnin Es Code</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninEsCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninDeviceid">Evnin Deviceid</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninDeviceid }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninDviModNum">Evnin Dvi Mod Num</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninDviModNum }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninDviCode">Evnin Dvi Code</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninDviCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninUnitUcCode">Evnin Unit Uc Code</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninUnitUcCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninUnitCode">Evnin Unit Code</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninUnitCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninUnitName">Evnin Unit Name</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninUnitName }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninUnitAddr">Evnin Unit Addr</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninUnitAddr }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninTheme">Evnin Theme</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninTheme }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninMemo">Evnin Memo</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninMemo }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninIsres">Evnin Isres</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninIsres }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninResMemo">Evnin Res Memo</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninResMemo }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninCretime">Evnin Cretime</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninCretime }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninCreid">Evnin Creid</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninCreid }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninModtime">Evnin Modtime</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninModtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.eventInter.evninModid">Evnin Modid</span></dt>
+                <dd>
+                    <span>{{ eventInter.evninModid }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/event-inter', eventInter.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

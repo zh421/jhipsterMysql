@@ -1,0 +1,24 @@
+entity EventInter
+{	// 互動通報事件檔										            //內碼
+	evninTime        ZonedDateTime            	       required     //時間
+	evninEsCode      String        maxlength(60)       required 	//事件狀態代碼
+	evninDeviceid    String        maxlength(30)       required 	//裝置代碼ID
+	evninDviModNum   Integer                           required     //裝置感測組合編號
+	evninDviCode     String		   maxlength(50)	   required 	//裝置辨識碼(序號)
+	evninUnitUcCode  String		   maxlength(60)	   required 	//發送單位類別代碼
+	evninUnitCode    String		   maxlength(50)	   required     //發送單位代碼
+	evninUnitName    String        maxlength(60)       required 	//發送單位名稱
+	evninUnitAddr    String        maxlength(255)      required 	//發送單位地址
+	evninTheme       String        maxlength(20)       required 	//通報主題
+	evninMemo        String        maxlength(1023) 	                //通報備註
+	evninIsres       Boolean                            	        //通報回覆
+	evninResMemo     String        maxlength(1023)      	        //回覆備註
+	evninCretime     ZonedDateTime  	               required     //建立時間
+	evninCreid       String        maxlength(255)      required 	//建立者ID
+	evninModtime     ZonedDateTime  	               required     //更新時間
+	evninModid       String        maxlength(255)      required     //更新者ID
+}
+paginate * with pagination
+filter   *
+dto      * with mapstruct
+service  * with serviceClass

@@ -43,6 +43,7 @@ public class CacheConfiguration {
             createCache(cm, aiot.java.domain.Authority.class.getName());
             createCache(cm, aiot.java.domain.User.class.getName() + ".authorities");
             createCache(cm, aiot.java.domain.DeviceCode.class.getName());
+            createCache(cm, aiot.java.domain.EventInter.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

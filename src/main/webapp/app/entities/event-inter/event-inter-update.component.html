@@ -1,0 +1,283 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-event-inter-heading" jhiTranslate="aIoTapplicationApp.eventInter.home.createOrEditLabel">Create or edit a Event Inter</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninTime" for="field_evninTime">Evnin Time</label>
+                    <div class="d-flex">
+                        <input id="field_evninTime" type="datetime-local" class="form-control" name="evninTime" formControlName="evninTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('evninTime')!.invalid && (editForm.get('evninTime')!.dirty || editForm.get('evninTime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninTime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('evninTime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninEsCode" for="field_evninEsCode">Evnin Es Code</label>
+                    <input type="text" class="form-control" name="evninEsCode" id="field_evninEsCode"
+                           formControlName="evninEsCode"/>
+                    <div *ngIf="editForm.get('evninEsCode')!.invalid && (editForm.get('evninEsCode')!.dirty || editForm.get('evninEsCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninEsCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninEsCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninDeviceid" for="field_evninDeviceid">Evnin Deviceid</label>
+                    <input type="text" class="form-control" name="evninDeviceid" id="field_evninDeviceid"
+                           formControlName="evninDeviceid"/>
+                    <div *ngIf="editForm.get('evninDeviceid')!.invalid && (editForm.get('evninDeviceid')!.dirty || editForm.get('evninDeviceid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninDeviceid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninDeviceid')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninDviModNum" for="field_evninDviModNum">Evnin Dvi Mod Num</label>
+                    <input type="number" class="form-control" name="evninDviModNum" id="field_evninDviModNum"
+                           formControlName="evninDviModNum"/>
+                    <div *ngIf="editForm.get('evninDviModNum')!.invalid && (editForm.get('evninDviModNum')!.dirty || editForm.get('evninDviModNum')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninDviModNum')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('evninDviModNum')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninDviCode" for="field_evninDviCode">Evnin Dvi Code</label>
+                    <input type="text" class="form-control" name="evninDviCode" id="field_evninDviCode"
+                           formControlName="evninDviCode"/>
+                    <div *ngIf="editForm.get('evninDviCode')!.invalid && (editForm.get('evninDviCode')!.dirty || editForm.get('evninDviCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninDviCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninDviCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninUnitUcCode" for="field_evninUnitUcCode">Evnin Unit Uc Code</label>
+                    <input type="text" class="form-control" name="evninUnitUcCode" id="field_evninUnitUcCode"
+                           formControlName="evninUnitUcCode"/>
+                    <div *ngIf="editForm.get('evninUnitUcCode')!.invalid && (editForm.get('evninUnitUcCode')!.dirty || editForm.get('evninUnitUcCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninUnitUcCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninUnitUcCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninUnitCode" for="field_evninUnitCode">Evnin Unit Code</label>
+                    <input type="text" class="form-control" name="evninUnitCode" id="field_evninUnitCode"
+                           formControlName="evninUnitCode"/>
+                    <div *ngIf="editForm.get('evninUnitCode')!.invalid && (editForm.get('evninUnitCode')!.dirty || editForm.get('evninUnitCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninUnitCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninUnitCode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninUnitName" for="field_evninUnitName">Evnin Unit Name</label>
+                    <input type="text" class="form-control" name="evninUnitName" id="field_evninUnitName"
+                           formControlName="evninUnitName"/>
+                    <div *ngIf="editForm.get('evninUnitName')!.invalid && (editForm.get('evninUnitName')!.dirty || editForm.get('evninUnitName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninUnitName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninUnitName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 60 }">
+                        This field cannot be longer than 60 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninUnitAddr" for="field_evninUnitAddr">Evnin Unit Addr</label>
+                    <input type="text" class="form-control" name="evninUnitAddr" id="field_evninUnitAddr"
+                           formControlName="evninUnitAddr"/>
+                    <div *ngIf="editForm.get('evninUnitAddr')!.invalid && (editForm.get('evninUnitAddr')!.dirty || editForm.get('evninUnitAddr')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninUnitAddr')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninUnitAddr')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninTheme" for="field_evninTheme">Evnin Theme</label>
+                    <input type="text" class="form-control" name="evninTheme" id="field_evninTheme"
+                           formControlName="evninTheme"/>
+                    <div *ngIf="editForm.get('evninTheme')!.invalid && (editForm.get('evninTheme')!.dirty || editForm.get('evninTheme')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninTheme')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninTheme')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninMemo" for="field_evninMemo">Evnin Memo</label>
+                    <input type="text" class="form-control" name="evninMemo" id="field_evninMemo"
+                           formControlName="evninMemo"/>
+                    <div *ngIf="editForm.get('evninMemo')!.invalid && (editForm.get('evninMemo')!.dirty || editForm.get('evninMemo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninMemo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 1023 }">
+                        This field cannot be longer than 1023 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninIsres" for="field_evninIsres">Evnin Isres</label>
+                    <input type="checkbox" class="form-control" name="evninIsres" id="field_evninIsres"
+                           formControlName="evninIsres"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninResMemo" for="field_evninResMemo">Evnin Res Memo</label>
+                    <input type="text" class="form-control" name="evninResMemo" id="field_evninResMemo"
+                           formControlName="evninResMemo"/>
+                    <div *ngIf="editForm.get('evninResMemo')!.invalid && (editForm.get('evninResMemo')!.dirty || editForm.get('evninResMemo')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninResMemo')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 1023 }">
+                        This field cannot be longer than 1023 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninCretime" for="field_evninCretime">Evnin Cretime</label>
+                    <div class="d-flex">
+                        <input id="field_evninCretime" type="datetime-local" class="form-control" name="evninCretime" formControlName="evninCretime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('evninCretime')!.invalid && (editForm.get('evninCretime')!.dirty || editForm.get('evninCretime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninCretime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('evninCretime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninCreid" for="field_evninCreid">Evnin Creid</label>
+                    <input type="text" class="form-control" name="evninCreid" id="field_evninCreid"
+                           formControlName="evninCreid"/>
+                    <div *ngIf="editForm.get('evninCreid')!.invalid && (editForm.get('evninCreid')!.dirty || editForm.get('evninCreid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninCreid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninCreid')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninModtime" for="field_evninModtime">Evnin Modtime</label>
+                    <div class="d-flex">
+                        <input id="field_evninModtime" type="datetime-local" class="form-control" name="evninModtime" formControlName="evninModtime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('evninModtime')!.invalid && (editForm.get('evninModtime')!.dirty || editForm.get('evninModtime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninModtime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('evninModtime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.eventInter.evninModid" for="field_evninModid">Evnin Modid</label>
+                    <input type="text" class="form-control" name="evninModid" id="field_evninModid"
+                           formControlName="evninModid"/>
+                    <div *ngIf="editForm.get('evninModid')!.invalid && (editForm.get('evninModid')!.dirty || editForm.get('evninModid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninModid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('evninModid')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

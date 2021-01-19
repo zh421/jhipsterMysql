@@ -8,6 +8,7 @@
       "entities": {
         "main": "實體",
         "deviceCode": "Device Code",
+        "eventInter": "Event Inter",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
