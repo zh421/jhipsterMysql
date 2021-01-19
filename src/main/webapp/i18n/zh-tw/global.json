@@ -13,6 +13,7 @@
         "sensorCode": "Sensor Code",
         "unit": "Unit",
         "unitClass": "Unit Class",
+        "noticeInfo": "Notice Info",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

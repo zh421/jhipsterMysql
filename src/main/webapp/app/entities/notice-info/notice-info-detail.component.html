@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="noticeInfo">
+            <h2><span jhiTranslate="aIoTapplicationApp.noticeInfo.detail.title">Notice Info</span> {{ noticeInfo.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiCaseid">Noti Caseid</span></dt>
+                <dd>
+                    <span>{{ noticeInfo.notiCaseid }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiTitle">Noti Title</span></dt>
+                <dd>
+                    <span>{{ noticeInfo.notiTitle }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiContent">Noti Content</span></dt>
+                <dd>
+                    <span>{{ noticeInfo.notiContent }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiInfotype">Noti Infotype</span></dt>
+                <dd>
+                    <span>{{ noticeInfo.notiInfotype }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiStarttime">Noti Starttime</span></dt>
+                <dd>
+                    <span>{{ noticeInfo.notiStarttime }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiEndtime">Noti Endtime</span></dt>
+                <dd>
+                    <span>{{ noticeInfo.notiEndtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiStatcode">Noti Statcode</span></dt>
+                <dd>
+                    <span>{{ noticeInfo.notiStatcode }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiCretime">Noti Cretime</span></dt>
+                <dd>
+                    <span>{{ noticeInfo.notiCretime }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiCreid">Noti Creid</span></dt>
+                <dd>
+                    <span>{{ noticeInfo.notiCreid }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiModtime">Noti Modtime</span></dt>
+                <dd>
+                    <span>{{ noticeInfo.notiModtime }}</span>
+                </dd>
+                <dt><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiModid">Noti Modid</span></dt>
+                <dd>
+                    <span>{{ noticeInfo.notiModid }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/notice-info', noticeInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,206 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-notice-info-heading" jhiTranslate="aIoTapplicationApp.noticeInfo.home.createOrEditLabel">Create or edit a Notice Info</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.noticeInfo.notiCaseid" for="field_notiCaseid">Noti Caseid</label>
+                    <input type="text" class="form-control" name="notiCaseid" id="field_notiCaseid"
+                           formControlName="notiCaseid"/>
+                    <div *ngIf="editForm.get('notiCaseid')!.invalid && (editForm.get('notiCaseid')!.dirty || editForm.get('notiCaseid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiCaseid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiCaseid')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.noticeInfo.notiTitle" for="field_notiTitle">Noti Title</label>
+                    <input type="text" class="form-control" name="notiTitle" id="field_notiTitle"
+                           formControlName="notiTitle"/>
+                    <div *ngIf="editForm.get('notiTitle')!.invalid && (editForm.get('notiTitle')!.dirty || editForm.get('notiTitle')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiTitle')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiTitle')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.noticeInfo.notiContent" for="field_notiContent">Noti Content</label>
+                    <input type="text" class="form-control" name="notiContent" id="field_notiContent"
+                           formControlName="notiContent"/>
+                    <div *ngIf="editForm.get('notiContent')!.invalid && (editForm.get('notiContent')!.dirty || editForm.get('notiContent')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiContent')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiContent')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 2048 }">
+                        This field cannot be longer than 2048 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.noticeInfo.notiInfotype" for="field_notiInfotype">Noti Infotype</label>
+                    <input type="text" class="form-control" name="notiInfotype" id="field_notiInfotype"
+                           formControlName="notiInfotype"/>
+                    <div *ngIf="editForm.get('notiInfotype')!.invalid && (editForm.get('notiInfotype')!.dirty || editForm.get('notiInfotype')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiInfotype')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiInfotype')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.noticeInfo.notiStarttime" for="field_notiStarttime">Noti Starttime</label>
+                    <div class="d-flex">
+                        <input id="field_notiStarttime" type="datetime-local" class="form-control" name="notiStarttime" formControlName="notiStarttime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('notiStarttime')!.invalid && (editForm.get('notiStarttime')!.dirty || editForm.get('notiStarttime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiStarttime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('notiStarttime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.noticeInfo.notiEndtime" for="field_notiEndtime">Noti Endtime</label>
+                    <div class="d-flex">
+                        <input id="field_notiEndtime" type="datetime-local" class="form-control" name="notiEndtime" formControlName="notiEndtime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('notiEndtime')!.invalid && (editForm.get('notiEndtime')!.dirty || editForm.get('notiEndtime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiEndtime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('notiEndtime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.noticeInfo.notiStatcode" for="field_notiStatcode">Noti Statcode</label>
+                    <input type="text" class="form-control" name="notiStatcode" id="field_notiStatcode"
+                           formControlName="notiStatcode"/>
+                    <div *ngIf="editForm.get('notiStatcode')!.invalid && (editForm.get('notiStatcode')!.dirty || editForm.get('notiStatcode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiStatcode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiStatcode')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.noticeInfo.notiCretime" for="field_notiCretime">Noti Cretime</label>
+                    <div class="d-flex">
+                        <input id="field_notiCretime" type="datetime-local" class="form-control" name="notiCretime" formControlName="notiCretime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('notiCretime')!.invalid && (editForm.get('notiCretime')!.dirty || editForm.get('notiCretime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiCretime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('notiCretime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.noticeInfo.notiCreid" for="field_notiCreid">Noti Creid</label>
+                    <input type="text" class="form-control" name="notiCreid" id="field_notiCreid"
+                           formControlName="notiCreid"/>
+                    <div *ngIf="editForm.get('notiCreid')!.invalid && (editForm.get('notiCreid')!.dirty || editForm.get('notiCreid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiCreid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiCreid')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.noticeInfo.notiModtime" for="field_notiModtime">Noti Modtime</label>
+                    <div class="d-flex">
+                        <input id="field_notiModtime" type="datetime-local" class="form-control" name="notiModtime" formControlName="notiModtime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('notiModtime')!.invalid && (editForm.get('notiModtime')!.dirty || editForm.get('notiModtime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiModtime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('notiModtime')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="aIoTapplicationApp.noticeInfo.notiModid" for="field_notiModid">Noti Modid</label>
+                    <input type="text" class="form-control" name="notiModid" id="field_notiModid"
+                           formControlName="notiModid"/>
+                    <div *ngIf="editForm.get('notiModid')!.invalid && (editForm.get('notiModid')!.dirty || editForm.get('notiModid')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiModid')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notiModid')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

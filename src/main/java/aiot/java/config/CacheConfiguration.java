@@ -48,6 +48,7 @@ public class CacheConfiguration {
             createCache(cm, aiot.java.domain.SensorCode.class.getName());
             createCache(cm, aiot.java.domain.Unit.class.getName());
             createCache(cm, aiot.java.domain.UnitClass.class.getName());
+            createCache(cm, aiot.java.domain.NoticeInfo.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

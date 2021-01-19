@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="aIoTapplicationApp.noticeInfo.home.title">Notice Infos</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-notice-info" [routerLink]="['/notice-info/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="aIoTapplicationApp.noticeInfo.home.createLabel">
+            Create a new Notice Info
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="noticeInfos?.length === 0">
+        <span jhiTranslate="aIoTapplicationApp.noticeInfo.home.notFound">No noticeInfos found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="noticeInfos?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notiCaseid"><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiCaseid">Noti Caseid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notiTitle"><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiTitle">Noti Title</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notiContent"><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiContent">Noti Content</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notiInfotype"><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiInfotype">Noti Infotype</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notiStarttime"><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiStarttime">Noti Starttime</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notiEndtime"><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiEndtime">Noti Endtime</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notiStatcode"><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiStatcode">Noti Statcode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notiCretime"><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiCretime">Noti Cretime</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notiCreid"><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiCreid">Noti Creid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notiModtime"><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiModtime">Noti Modtime</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="notiModid"><span jhiTranslate="aIoTapplicationApp.noticeInfo.notiModid">Noti Modid</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let noticeInfo of noticeInfos ;trackBy: trackId">
+                    <td><a [routerLink]="['/notice-info', noticeInfo.id, 'view']">{{ noticeInfo.id }}</a></td>
+                    <td>{{ noticeInfo.notiCaseid }}</td>
+                    <td>{{ noticeInfo.notiTitle }}</td>
+                    <td>{{ noticeInfo.notiContent }}</td>
+                    <td>{{ noticeInfo.notiInfotype }}</td>
+                    <td>{{ noticeInfo.notiStarttime | date:'medium' }}</td>
+                    <td>{{ noticeInfo.notiEndtime | date:'medium' }}</td>
+                    <td>{{ noticeInfo.notiStatcode }}</td>
+                    <td>{{ noticeInfo.notiCretime | date:'medium' }}</td>
+                    <td>{{ noticeInfo.notiCreid }}</td>
+                    <td>{{ noticeInfo.notiModtime | date:'medium' }}</td>
+                    <td>{{ noticeInfo.notiModid }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/notice-info', noticeInfo.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/notice-info', noticeInfo.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(noticeInfo)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="noticeInfos?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

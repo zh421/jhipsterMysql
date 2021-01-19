@@ -1,0 +1,18 @@
+entity NoticeInfo
+{	// 公告事項維護與設定檔                						  //內碼
+	notiCaseid        String        maxlength(255)       required     //單位類別代碼
+	notiTitle         String        maxlength(255)       required 	  //單位類別名稱
+	notiContent       String        maxlength(2048)      required 	  //單位類別名稱
+	notiInfotype      String        maxlength(255)       required 	  //單位類別名稱
+	notiStarttime     ZonedDateTime                      required 	  //單位類別名稱
+	notiEndtime       ZonedDateTime                      required 	  //單位類別名稱
+	notiStatcode      String        maxlength(255)       required 	  //單位類別名稱
+	notiCretime       ZonedDateTime  	                 required     //建立時間
+	notiCreid         String        maxlength(255)       required 	  //建立者ID
+	notiModtime       ZonedDateTime  	                 required     //更新時間
+	notiModid         String        maxlength(255)       required     //更新者ID
+}
+paginate * with pagination
+filter   *
+dto      * with mapstruct
+service  * with serviceClass
