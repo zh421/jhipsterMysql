@@ -1,0 +1,13 @@
+entity DeviceCode
+{	// 感測元件組合檔(裝置檔)										            //內碼
+	dviCode        String        maxlength(60)       required     //感測元件組合代碼
+	dviName        String        maxlength(60)       required 	  //感測元件組合名稱
+	dviCretime     ZonedDateTime  	                required      //建立時間
+	dviCreid       String        maxlength(255)      required 	  //建立者ID
+	dviModtime     ZonedDateTime  	                required      //更新時間
+	dviModid       String        maxlength(255)      required     //更新者ID
+}
+paginate * with pagination
+filter   *
+dto      * with mapstruct
+service  * with serviceClass
