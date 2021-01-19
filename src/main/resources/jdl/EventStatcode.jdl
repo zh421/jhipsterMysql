@@ -1,0 +1,13 @@
+entity EventStatcode
+{	// 事件狀態檔										            //內碼
+	esCode        String        maxlength(60)       required     //狀態代碼
+	esName        String        maxlength(60)       required 	 //狀態名稱
+	esCretime     ZonedDateTime  	                required     //建立時間
+	esCreid       String        maxlength(255)      required 	 //建立者ID
+	esModtime     ZonedDateTime  	                required     //更新時間
+	esModid       String        maxlength(255)      required     //更新者ID
+}
+paginate * with pagination
+filter   *
+dto      * with mapstruct
+service  * with serviceClass
