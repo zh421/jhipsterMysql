@@ -23,6 +23,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'unit',
         loadChildren: () => import('./unit/unit.module').then(m => m.AIoTapplicationUnitModule)
+      },
+      {
+        path: 'unit-class',
+        loadChildren: () => import('./unit-class/unit-class.module').then(m => m.AIoTapplicationUnitClassModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

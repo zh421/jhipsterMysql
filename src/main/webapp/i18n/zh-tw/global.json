@@ -12,6 +12,7 @@
         "eventStatcode": "Event Statcode",
         "sensorCode": "Sensor Code",
         "unit": "Unit",
+        "unitClass": "Unit Class",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

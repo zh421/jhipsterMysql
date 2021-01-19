@@ -1,0 +1,13 @@
+entity UnitClass
+{	// 單位類別檔                								  //內碼
+	ucCode        String        maxlength(60)       required      //單位類別代碼
+	ucName        String        maxlength(60)       required 	  //單位類別名稱
+	ucCretime     ZonedDateTime  	                required      //建立時間
+	ucCreid       String        maxlength(255)      required 	  //建立者ID
+	ucModtime     ZonedDateTime  	                required      //更新時間
+	ucModid       String        maxlength(255)      required      //更新者ID
+}
+paginate * with pagination
+filter   *
+dto      * with mapstruct
+service  * with serviceClass
