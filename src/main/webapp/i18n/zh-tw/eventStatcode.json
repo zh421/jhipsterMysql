@@ -2,26 +2,26 @@
   "aIoTapplicationApp": {
     "eventStatcode": {
       "home": {
-        "title": "Event Statcodes",
-        "createLabel": "建立一筆新的 Event Statcode",
-        "createOrEditLabel": "建立或編輯 Event Statcode",
+        "title": "事件狀態",
+        "createLabel": "建立一筆新的 事件狀態",
+        "createOrEditLabel": "建立或編輯 事件狀態",
         "notFound": "No Event Statcodes found"
       },
       "created": "新的 Event Statcode 建立成功，識別碼為 {{ param }}",
-      "updated": "識別碼為 {{ param }} 的 Event Statcode 更新成功",
-      "deleted": "識別碼為 {{ param }} 的 Event Statcode 刪除成功",
+      "updated": "識別碼為 {{ param }} 的 事件狀態 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 事件狀態 刪除成功",
       "delete": {
-        "question": "您確定要刪除 Event Statcode {{ id }} 嗎?"
+        "question": "您確定要刪除 事件狀態 {{ id }} 嗎?"
       },
       "detail": {
-        "title": "Event Statcode"
+        "title": "事件狀態(details)"
       },
-      "esCode": "Es Code",
-      "esName": "Es Name",
-      "esCretime": "Es Cretime",
-      "esCreid": "Es Creid",
-      "esModtime": "Es Modtime",
-      "esModid": "Es Modid"
+      "esCode": "狀態代碼",
+      "esName": "狀態名稱",
+      "esCretime": "建立時間",
+      "esCreid": "建立者ID",
+      "esModtime": "最後修改時間",
+      "esModid": "最後修改者ID"
     }
   }
 }

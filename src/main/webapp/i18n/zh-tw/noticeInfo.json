@@ -2,31 +2,31 @@
   "aIoTapplicationApp": {
     "noticeInfo": {
       "home": {
-        "title": "Notice Infos",
-        "createLabel": "建立一筆新的 Notice Info",
-        "createOrEditLabel": "建立或編輯 Notice Info",
+        "title": "公告事項維護與設定",
+        "createLabel": "建立一筆新的 公告事項維護與設定",
+        "createOrEditLabel": "建立或編輯 公告事項維護與設定",
         "notFound": "No Notice Infos found"
       },
-      "created": "新的 Notice Info 建立成功，識別碼為 {{ param }}",
-      "updated": "識別碼為 {{ param }} 的 Notice Info 更新成功",
-      "deleted": "識別碼為 {{ param }} 的 Notice Info 刪除成功",
+      "created": "新的 公告事項維護與設定 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 公告事項維護與設定 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 公告事項維護與設定 刪除成功",
       "delete": {
-        "question": "您確定要刪除 Notice Info {{ id }} 嗎?"
+        "question": "您確定要刪除 公告事項維護與設定{{ id }} 嗎?"
       },
       "detail": {
-        "title": "Notice Info"
+        "title": "公告事項維護與設定(details)"
       },
-      "notiCaseid": "Noti Caseid",
-      "notiTitle": "Noti Title",
-      "notiContent": "Noti Content",
-      "notiInfotype": "Noti Infotype",
-      "notiStarttime": "Noti Starttime",
-      "notiEndtime": "Noti Endtime",
-      "notiStatcode": "Noti Statcode",
-      "notiCretime": "Noti Cretime",
-      "notiCreid": "Noti Creid",
-      "notiModtime": "Noti Modtime",
-      "notiModid": "Noti Modid"
+      "notiCaseid": "公告事項代碼",
+      "notiTitle": "公告主旨",
+      "notiContent": "公告內文",
+      "notiInfotype": "公告類型",
+      "notiStarttime": "啟用時間",
+      "notiEndtime": "結束時間",
+      "notiStatcode": "狀態",
+      "notiCretime": "建立時間",
+      "notiCreid": "建立者ID",
+      "notiModtime": "最後修改時間",
+      "notiModid": "最後修改者ID"
     }
   }
 }

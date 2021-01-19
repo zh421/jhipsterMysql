@@ -7,13 +7,13 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "實體",
-        "deviceCode": "Device Code",
-        "eventInter": "Event Inter",
-        "eventStatcode": "Event Statcode",
-        "sensorCode": "Sensor Code",
-        "unit": "Unit",
-        "unitClass": "Unit Class",
-        "noticeInfo": "Notice Info",
+        "deviceCode": "感測元件組合",
+        "eventInter": "互動通報事件",
+        "eventStatcode": "事件狀態",
+        "sensorCode": "感測元件代碼",
+        "unit": "單位基本資料",
+        "unitClass": "單位類別",
+        "noticeInfo": "公告事項維護與設定",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

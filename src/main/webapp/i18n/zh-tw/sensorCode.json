@@ -2,26 +2,26 @@
   "aIoTapplicationApp": {
     "sensorCode": {
       "home": {
-        "title": "Sensor Codes",
-        "createLabel": "建立一筆新的 Sensor Code",
-        "createOrEditLabel": "建立或編輯 Sensor Code",
+        "title": "感測元件代碼",
+        "createLabel": "建立一筆新的 感測元件代碼",
+        "createOrEditLabel": "建立或編輯 感測元件代碼",
         "notFound": "No Sensor Codes found"
       },
-      "created": "新的 Sensor Code 建立成功，識別碼為 {{ param }}",
-      "updated": "識別碼為 {{ param }} 的 Sensor Code 更新成功",
-      "deleted": "識別碼為 {{ param }} 的 Sensor Code 刪除成功",
+      "created": "新的 感測元件代碼 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 感測元件代碼 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 感測元件代碼 刪除成功",
       "delete": {
-        "question": "您確定要刪除 Sensor Code {{ id }} 嗎?"
+        "question": "您確定要刪除 感測元件代碼 {{ id }} 嗎?"
       },
       "detail": {
-        "title": "Sensor Code"
+        "title": "感測元件代碼(details)"
       },
-      "scCode": "Sc Code",
-      "scName": "Sc Name",
-      "scCretime": "Sc Cretime",
-      "scCreid": "Sc Creid",
-      "scModtime": "Sc Modtime",
-      "scModid": "Sc Modid"
+      "scCode": "感測元件代碼",
+      "scName": "感測元件名稱",
+      "scCretime": "建立時間",
+      "scCreid": "建立者ID",
+      "scModtime": "最後修改時間",
+      "scModid": "最後修改者ID"
     }
   }
 }

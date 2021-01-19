@@ -2,26 +2,26 @@
   "aIoTapplicationApp": {
     "unitClass": {
       "home": {
-        "title": "Unit Classes",
-        "createLabel": "建立一筆新的 Unit Class",
-        "createOrEditLabel": "建立或編輯 Unit Class",
+        "title": "單位類別",
+        "createLabel": "建立一筆新的 單位類別",
+        "createOrEditLabel": "建立或編輯 單位類別",
         "notFound": "No Unit Classes found"
       },
-      "created": "新的 Unit Class 建立成功，識別碼為 {{ param }}",
-      "updated": "識別碼為 {{ param }} 的 Unit Class 更新成功",
-      "deleted": "識別碼為 {{ param }} 的 Unit Class 刪除成功",
+      "created": "新的 單位類別 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 單位類別 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 單位類別 刪除成功",
       "delete": {
-        "question": "您確定要刪除 Unit Class {{ id }} 嗎?"
+        "question": "您確定要刪除 單位類別 {{ id }} 嗎?"
       },
       "detail": {
-        "title": "Unit Class"
+        "title": "單位類別(details)"
       },
-      "ucCode": "Uc Code",
-      "ucName": "Uc Name",
-      "ucCretime": "Uc Cretime",
-      "ucCreid": "Uc Creid",
-      "ucModtime": "Uc Modtime",
-      "ucModid": "Uc Modid"
+      "ucCode": "單位類別代碼",
+      "ucName": "單位類別名稱",
+      "ucCretime": "建立時間",
+      "ucCreid": "建立者ID",
+      "ucModtime": "最後修改時間",
+      "ucModid": "最後修改者ID"
     }
   }
 }

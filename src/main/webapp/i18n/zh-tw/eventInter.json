@@ -2,37 +2,37 @@
   "aIoTapplicationApp": {
     "eventInter": {
       "home": {
-        "title": "Event Inters",
-        "createLabel": "建立一筆新的 Event Inter",
-        "createOrEditLabel": "建立或編輯 Event Inter",
+        "title": "互動通報事件",
+        "createLabel": "建立一筆新的 互動通報事件",
+        "createOrEditLabel": "建立或編輯 互動通報事件",
         "notFound": "No Event Inters found"
       },
-      "created": "新的 Event Inter 建立成功，識別碼為 {{ param }}",
-      "updated": "識別碼為 {{ param }} 的 Event Inter 更新成功",
-      "deleted": "識別碼為 {{ param }} 的 Event Inter 刪除成功",
+      "created": "新的 互動通報事件 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 互動通報事件 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 互動通報事件 刪除成功",
       "delete": {
-        "question": "您確定要刪除 Event Inter {{ id }} 嗎?"
+        "question": "您確定要刪除 互動通報事件 {{ id }} 嗎?"
       },
       "detail": {
-        "title": "Event Inter"
+        "title": "互動通報事件(details)"
       },
-      "evninTime": "Evnin Time",
-      "evninEsCode": "Evnin Es Code",
-      "evninDeviceid": "Evnin Deviceid",
-      "evninDviModNum": "Evnin Dvi Mod Num",
-      "evninDviCode": "Evnin Dvi Code",
-      "evninUnitUcCode": "Evnin Unit Uc Code",
-      "evninUnitCode": "Evnin Unit Code",
-      "evninUnitName": "Evnin Unit Name",
-      "evninUnitAddr": "Evnin Unit Addr",
-      "evninTheme": "Evnin Theme",
-      "evninMemo": "Evnin Memo",
-      "evninIsres": "Evnin Isres",
-      "evninResMemo": "Evnin Res Memo",
-      "evninCretime": "Evnin Cretime",
-      "evninCreid": "Evnin Creid",
-      "evninModtime": "Evnin Modtime",
-      "evninModid": "Evnin Modid"
+      "evninTime": "事件時間",
+      "evninEsCode": "事件狀態",
+      "evninDeviceid": "裝置代碼ID",
+      "evninDviModNum": "裝置感測組合編號",
+      "evninDviCode": "裝置辨識碼(序號)",
+      "evninUnitUcCode": "發送單位類別代碼",
+      "evninUnitCode": "發送單位代碼",
+      "evninUnitName": "發送單位名稱",
+      "evninUnitAddr": "發送單位地址",
+      "evninTheme": "通報主題",
+      "evninMemo": "通報備註",
+      "evninIsres": "通報回覆",
+      "evninResMemo": "回覆備註",
+      "evninCretime": "建立時間",
+      "evninCreid": "建立者ID",
+      "evninModtime": "最後修改時間",
+      "evninModid": "最後修改者ID"
     }
   }
 }

@@ -2,26 +2,26 @@
   "aIoTapplicationApp": {
     "deviceCode": {
       "home": {
-        "title": "Device Codes",
-        "createLabel": "建立一筆新的 Device Code",
-        "createOrEditLabel": "建立或編輯 Device Code",
-        "notFound": "No Device Codes found"
+        "title": "感測元件組合檔",
+        "createLabel": "建立一筆新的 感測元件組合",
+        "createOrEditLabel": "建立或編輯 感測元件組合",
+        "notFound": "沒有感測元件組合資料"
       },
-      "created": "新的 Device Code 建立成功，識別碼為 {{ param }}",
-      "updated": "識別碼為 {{ param }} 的 Device Code 更新成功",
-      "deleted": "識別碼為 {{ param }} 的 Device Code 刪除成功",
+      "created": "新的 感測元件組合 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 感測元件組合 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 感測元件組合 刪除成功",
       "delete": {
-        "question": "您確定要刪除 Device Code {{ id }} 嗎?"
+        "question": "您確定要刪除 感測元件組合 {{ id }} 嗎?"
       },
       "detail": {
-        "title": "Device Code"
+        "title": "感測元件組合檔(details)"
       },
-      "dviCode": "Dvi Code",
-      "dviName": "Dvi Name",
-      "dviCretime": "Dvi Cretime",
-      "dviCreid": "Dvi Creid",
-      "dviModtime": "Dvi Modtime",
-      "dviModid": "Dvi Modid"
+      "dviCode": "感測元件組合代碼",
+      "dviName": "感測元件組合名稱",
+      "dviCretime": "建立時間",
+      "dviCreid": "建立者ID",
+      "dviModtime": "最後修改時間",
+      "dviModid": "最後修改者ID"
     }
   }
 }
