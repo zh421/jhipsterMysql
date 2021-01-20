@@ -2,19 +2,19 @@
   "aIoTapplicationApp": {
     "eventStatcode": {
       "home": {
-        "title": "事件狀態",
-        "createLabel": "建立一筆新的 事件狀態",
-        "createOrEditLabel": "建立或編輯 事件狀態",
+        "title": "事件狀態代碼",
+        "createLabel": "建立一筆新的 事件狀態代碼",
+        "createOrEditLabel": "建立或編輯 事件狀態代碼",
         "notFound": "No Event Statcodes found"
       },
-      "created": "新的 Event Statcode 建立成功，識別碼為 {{ param }}",
-      "updated": "識別碼為 {{ param }} 的 事件狀態 更新成功",
-      "deleted": "識別碼為 {{ param }} 的 事件狀態 刪除成功",
+      "created": "新的 事件狀態代碼 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 事件狀態代碼 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 事件狀態代碼 刪除成功",
       "delete": {
-        "question": "您確定要刪除 事件狀態 {{ id }} 嗎?"
+        "question": "您確定要刪除 事件狀態代碼 {{ id }} 嗎?"
       },
       "detail": {
-        "title": "事件狀態(details)"
+        "title": "事件狀態代碼(details)"
       },
       "esCode": "狀態代碼",
       "esName": "狀態名稱",
