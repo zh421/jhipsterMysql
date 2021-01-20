@@ -1,6 +1,7 @@
 package aiot.java.web.rest;
 
 import aiot.java.service.EventInterService;
+import aiot.java.util.StringFilterUtils;
 import aiot.java.web.rest.errors.BadRequestAlertException;
 import aiot.java.service.dto.EventInterDTO;
 import aiot.java.service.dto.EventInterCriteria;
@@ -99,6 +100,24 @@ public class EventInterResource {
     @GetMapping("/event-inters")
     public ResponseEntity<List<EventInterDTO>> getAllEventInters(EventInterCriteria criteria, Pageable pageable) {
         log.debug("REST request to get EventInters by criteria: {}", criteria);
+        Page<EventInterDTO> page = eventInterQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code POST  /event-inters} : Search a new eventInter.
+     *
+     * @param eventInterDTO the eventInterDTO to search datas.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new eventInterDTO, or with status {@code 400 (Bad Request)} if the eventInter has already an ID.
+     *
+     */
+    @PostMapping("/event-inters/search")
+    public ResponseEntity<List<EventInterDTO>> searchEventInter( @RequestBody EventInterDTO eventInterDTO, EventInterCriteria criteria, Pageable pageable){
+        log.debug("REST request to save EventInter : {}", eventInterDTO);
+        criteria.setEvninUnitName(StringFilterUtils.toContainStringFilter(eventInterDTO.getEvninUnitName()));
+        criteria.setEvninTheme(StringFilterUtils.toContainStringFilter(eventInterDTO.getEvninTheme()));
+        criteria.setEvninEsCode(StringFilterUtils.toContainStringFilter(eventInterDTO.getEvninEsCode()));
         Page<EventInterDTO> page = eventInterQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());

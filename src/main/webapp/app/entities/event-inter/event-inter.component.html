@@ -10,6 +10,29 @@
         </button>
     </h2>
 
+    <br>
+    <div [formGroup]="searchForm">
+        <div>
+            <span jhiTranslate="aIoTapplicationApp.eventInter.evninEsCode">Evnin Es Code: </span>
+            <input type="text" formControlName="esCode"/>
+        </div>
+        <br>
+        <div>
+            <span jhiTranslate="aIoTapplicationApp.eventInter.evninUnitName">Evnin Unit Name: </span>
+            <input type="text" formControlName="unitName"/>
+        </div>
+        <br>
+        <div>
+            <span jhiTranslate="aIoTapplicationApp.eventInter.evninTheme">Evnin Theme: </span>
+            <input type="text" formControlName="theme"/>
+        </div>
+    </div>
+    <br>
+    <div>
+        <button (click)="searchButton(1)">查詢</button>
+    </div>
+    <br>
+
     <jhi-alert-error></jhi-alert-error>
 
     <jhi-alert></jhi-alert>
@@ -25,21 +48,21 @@
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="evninTime"><span jhiTranslate="aIoTapplicationApp.eventInter.evninTime">Evnin Time</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="evninEsCode"><span jhiTranslate="aIoTapplicationApp.eventInter.evninEsCode">Evnin Es Code</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninDeviceid"><span jhiTranslate="aIoTapplicationApp.eventInter.evninDeviceid">Evnin Deviceid</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninDviModNum"><span jhiTranslate="aIoTapplicationApp.eventInter.evninDviModNum">Evnin Dvi Mod Num</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninDviCode"><span jhiTranslate="aIoTapplicationApp.eventInter.evninDviCode">Evnin Dvi Code</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninUnitUcCode"><span jhiTranslate="aIoTapplicationApp.eventInter.evninUnitUcCode">Evnin Unit Uc Code</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninUnitCode"><span jhiTranslate="aIoTapplicationApp.eventInter.evninUnitCode">Evnin Unit Code</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="evninDeviceid"><span jhiTranslate="aIoTapplicationApp.eventInter.evninDeviceid">Evnin Deviceid</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="evninDviModNum"><span jhiTranslate="aIoTapplicationApp.eventInter.evninDviModNum">Evnin Dvi Mod Num</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="evninDviCode"><span jhiTranslate="aIoTapplicationApp.eventInter.evninDviCode">Evnin Dvi Code</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="evninUnitUcCode"><span jhiTranslate="aIoTapplicationApp.eventInter.evninUnitUcCode">Evnin Unit Uc Code</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="evninUnitCode"><span jhiTranslate="aIoTapplicationApp.eventInter.evninUnitCode">Evnin Unit Code</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"  jhiSortBy="evninUnitName"><span jhiTranslate="aIoTapplicationApp.eventInter.evninUnitName">Evnin Unit Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninUnitAddr"><span jhiTranslate="aIoTapplicationApp.eventInter.evninUnitAddr">Evnin Unit Addr</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="evninUnitAddr"><span jhiTranslate="aIoTapplicationApp.eventInter.evninUnitAddr">Evnin Unit Addr</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"  jhiSortBy="evninTheme"><span jhiTranslate="aIoTapplicationApp.eventInter.evninTheme">Evnin Theme</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninMemo"><span jhiTranslate="aIoTapplicationApp.eventInter.evninMemo">Evnin Memo</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninIsres"><span jhiTranslate="aIoTapplicationApp.eventInter.evninIsres">Evnin Isres</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninResMemo"><span jhiTranslate="aIoTapplicationApp.eventInter.evninResMemo">Evnin Res Memo</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninCretime"><span jhiTranslate="aIoTapplicationApp.eventInter.evninCretime">Evnin Cretime</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninCreid"><span jhiTranslate="aIoTapplicationApp.eventInter.evninCreid">Evnin Creid</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninModtime"><span jhiTranslate="aIoTapplicationApp.eventInter.evninModtime">Evnin Modtime</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="evninModid"><span jhiTranslate="aIoTapplicationApp.eventInter.evninModid">Evnin Modid</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="evninMemo"><span jhiTranslate="aIoTapplicationApp.eventInter.evninMemo">Evnin Memo</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="evninIsres"><span jhiTranslate="aIoTapplicationApp.eventInter.evninIsres">Evnin Isres</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="evninResMemo"><span jhiTranslate="aIoTapplicationApp.eventInter.evninResMemo">Evnin Res Memo</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="evninCretime"><span jhiTranslate="aIoTapplicationApp.eventInter.evninCretime">Evnin Cretime</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="evninCreid"><span jhiTranslate="aIoTapplicationApp.eventInter.evninCreid">Evnin Creid</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="evninModtime"><span jhiTranslate="aIoTapplicationApp.eventInter.evninModtime">Evnin Modtime</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="evninModid"><span jhiTranslate="aIoTapplicationApp.eventInter.evninModid">Evnin Modid</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -48,21 +71,21 @@
                     <td><a [routerLink]="['/event-inter', eventInter.id, 'view']">{{ eventInter.id }}</a></td>
                     <td>{{ eventInter.evninTime | date:'medium' }}</td>
                     <td>{{ eventInter.evninEsCode }}</td>
-                    <td>{{ eventInter.evninDeviceid }}</td>
-                    <td>{{ eventInter.evninDviModNum }}</td>
-                    <td>{{ eventInter.evninDviCode }}</td>
-                    <td>{{ eventInter.evninUnitUcCode }}</td>
-                    <td>{{ eventInter.evninUnitCode }}</td>
+<!--                    <td>{{ eventInter.evninDeviceid }}</td>-->
+<!--                    <td>{{ eventInter.evninDviModNum }}</td>-->
+<!--                    <td>{{ eventInter.evninDviCode }}</td>-->
+<!--                    <td>{{ eventInter.evninUnitUcCode }}</td>-->
+<!--                    <td>{{ eventInter.evninUnitCode }}</td>-->
                     <td>{{ eventInter.evninUnitName }}</td>
-                    <td>{{ eventInter.evninUnitAddr }}</td>
+<!--                    <td>{{ eventInter.evninUnitAddr }}</td>-->
                     <td>{{ eventInter.evninTheme }}</td>
-                    <td>{{ eventInter.evninMemo }}</td>
-                    <td>{{ eventInter.evninIsres }}</td>
-                    <td>{{ eventInter.evninResMemo }}</td>
-                    <td>{{ eventInter.evninCretime | date:'medium' }}</td>
-                    <td>{{ eventInter.evninCreid }}</td>
-                    <td>{{ eventInter.evninModtime | date:'medium' }}</td>
-                    <td>{{ eventInter.evninModid }}</td>
+<!--                    <td>{{ eventInter.evninMemo }}</td>-->
+<!--                    <td>{{ eventInter.evninIsres }}</td>-->
+<!--                    <td>{{ eventInter.evninResMemo }}</td>-->
+<!--                    <td>{{ eventInter.evninCretime | date:'medium' }}</td>-->
+<!--                    <td>{{ eventInter.evninCreid }}</td>-->
+<!--                    <td>{{ eventInter.evninModtime | date:'medium' }}</td>-->
+<!--                    <td>{{ eventInter.evninModid }}</td>-->
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

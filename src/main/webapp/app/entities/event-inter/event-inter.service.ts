@@ -6,7 +6,7 @@ import * as moment from 'moment';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
-import { IEventInter } from 'app/shared/model/event-inter.model';
+import { EventInter, IEventInter } from 'app/shared/model/event-inter.model';
 
 type EntityResponseType = HttpResponse<IEventInter>;
 type EntityArrayResponseType = HttpResponse<IEventInter[]>;
@@ -41,6 +41,12 @@ export class EventInterService {
     const options = createRequestOption(req);
     return this.http
       .get<IEventInter[]>(this.resourceUrl, { params: options, observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
+
+  search(req?: any, eventInter?: EventInter): Observable<EntityArrayResponseType> {
+    return this.http
+      .post<IEventInter[]>(this.resourceUrl + '/search', eventInter, { observe: 'response' })
       .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
   }
 
