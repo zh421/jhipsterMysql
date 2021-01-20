@@ -1,6 +1,7 @@
 package aiot.java.web.rest;
 
 import aiot.java.service.SensorCodeService;
+import aiot.java.util.StringFilterUtils;
 import aiot.java.web.rest.errors.BadRequestAlertException;
 import aiot.java.service.dto.SensorCodeDTO;
 import aiot.java.service.dto.SensorCodeCriteria;
@@ -99,6 +100,23 @@ public class SensorCodeResource {
     @GetMapping("/sensor-codes")
     public ResponseEntity<List<SensorCodeDTO>> getAllSensorCodes(SensorCodeCriteria criteria, Pageable pageable) {
         log.debug("REST request to get SensorCodes by criteria: {}", criteria);
+        Page<SensorCodeDTO> page = sensorCodeQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code POST  /sensor-codes} : Search by sensorCodeDTO.
+     *
+     * @param sensorCodeDTO the sensorCodeDTO to search datas.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new sensorCodeDTO, or with status {@code 400 (Bad Request)} if the sensorCode has already an ID.
+     *
+     */
+    @PostMapping("/sensor-codes/search")
+    public ResponseEntity<List<SensorCodeDTO>> searchSensorCode(@RequestBody SensorCodeDTO sensorCodeDTO, SensorCodeCriteria criteria, Pageable pageable) {
+        log.debug("REST request to save SensorCode : {}", sensorCodeDTO);
+        criteria.setScCode(StringFilterUtils.toContainStringFilter(sensorCodeDTO.getScCode()));
+        criteria.setScName(StringFilterUtils.toContainStringFilter(sensorCodeDTO.getScName()));
         Page<SensorCodeDTO> page = sensorCodeQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());

@@ -5,11 +5,12 @@ import { Subscription } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { ISensorCode } from 'app/shared/model/sensor-code.model';
+import { ISensorCode, SensorCode } from 'app/shared/model/sensor-code.model';
 
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { SensorCodeService } from './sensor-code.service';
 import { SensorCodeDeleteDialogComponent } from './sensor-code-delete-dialog.component';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'jhi-sensor-code',
@@ -17,6 +18,7 @@ import { SensorCodeDeleteDialogComponent } from './sensor-code-delete-dialog.com
 })
 export class SensorCodeComponent implements OnInit, OnDestroy {
   sensorCodes?: ISensorCode[];
+  sensorCodeSearch?: SensorCode;
   eventSubscriber?: Subscription;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
@@ -24,13 +26,18 @@ export class SensorCodeComponent implements OnInit, OnDestroy {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
+  searchForm = this.fb.group({
+    scCode: [],
+    scName: []
+  });
 
   constructor(
     protected sensorCodeService: SensorCodeService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    private fb: FormBuilder
   ) {}
 
   loadPage(page?: number): void {
@@ -72,6 +79,34 @@ export class SensorCodeComponent implements OnInit, OnDestroy {
 
   registerChangeInSensorCodes(): void {
     this.eventSubscriber = this.eventManager.subscribe('sensorCodeListModification', () => this.loadPage());
+  }
+
+  // 查詢
+  searchButton(page?: number): void {
+    this.sensorCodeSearch = new SensorCode();
+    this.sensorCodeSearch.scCode = this.searchForm.get('scCode')!.value;
+    this.sensorCodeSearch.scName = this.searchForm.get('scName')!.value;
+    this.search(page);
+  }
+
+  search(page?: number): void {
+    const pageToLoad: number = page ? page : this.page;
+    if (page === 1) {
+      this.ngbPaginationPage = 1;
+    }
+    this.sensorCodeService
+      .search(
+        {
+          page: pageToLoad - 1,
+          size: this.itemsPerPage,
+          sort: this.sort()
+        },
+        this.sensorCodeSearch
+      )
+      .subscribe(
+        (res: HttpResponse<ISensorCode[]>) => this.onSuccess(res.body, res.headers, pageToLoad),
+        () => this.onError()
+      );
   }
 
   delete(sensorCode: ISensorCode): void {

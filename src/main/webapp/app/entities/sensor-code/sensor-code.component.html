@@ -9,7 +9,23 @@
             </span>
         </button>
     </h2>
-
+    <br>
+    <div [formGroup]="searchForm">
+        <div>
+            <span jhiTranslate="aIoTapplicationApp.sensorCode.scCode">Sc Code: </span>
+            <input type="text" formControlName="scCode"/>
+        </div>
+        <br>
+        <div>
+            <span jhiTranslate="aIoTapplicationApp.sensorCode.scName">Sc Name: </span>
+            <input type="text" formControlName="scName"/>
+        </div>
+    </div>
+    <br>
+    <div>
+        <button (click)="searchButton(1)">查詢</button>
+    </div>
+    <br>
     <jhi-alert-error></jhi-alert-error>
 
     <jhi-alert></jhi-alert>
@@ -25,10 +41,10 @@
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="scCode"><span jhiTranslate="aIoTapplicationApp.sensorCode.scCode">Sc Code</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="scName"><span jhiTranslate="aIoTapplicationApp.sensorCode.scName">Sc Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="scCretime"><span jhiTranslate="aIoTapplicationApp.sensorCode.scCretime">Sc Cretime</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="scCreid"><span jhiTranslate="aIoTapplicationApp.sensorCode.scCreid">Sc Creid</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="scModtime"><span jhiTranslate="aIoTapplicationApp.sensorCode.scModtime">Sc Modtime</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="scModid"><span jhiTranslate="aIoTapplicationApp.sensorCode.scModid">Sc Modid</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="scCretime"><span jhiTranslate="aIoTapplicationApp.sensorCode.scCretime">Sc Cretime</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="scCreid"><span jhiTranslate="aIoTapplicationApp.sensorCode.scCreid">Sc Creid</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="scModtime"><span jhiTranslate="aIoTapplicationApp.sensorCode.scModtime">Sc Modtime</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="scModid"><span jhiTranslate="aIoTapplicationApp.sensorCode.scModid">Sc Modid</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -37,10 +53,10 @@
                     <td><a [routerLink]="['/sensor-code', sensorCode.id, 'view']">{{ sensorCode.id }}</a></td>
                     <td>{{ sensorCode.scCode }}</td>
                     <td>{{ sensorCode.scName }}</td>
-                    <td>{{ sensorCode.scCretime | date:'medium' }}</td>
-                    <td>{{ sensorCode.scCreid }}</td>
-                    <td>{{ sensorCode.scModtime | date:'medium' }}</td>
-                    <td>{{ sensorCode.scModid }}</td>
+<!--                    <td>{{ sensorCode.scCretime | date:'medium' }}</td>-->
+<!--                    <td>{{ sensorCode.scCreid }}</td>-->
+<!--                    <td>{{ sensorCode.scModtime | date:'medium' }}</td>-->
+<!--                    <td>{{ sensorCode.scModid }}</td>-->
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
