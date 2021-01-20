@@ -1,6 +1,7 @@
 package aiot.java.web.rest;
 
 import aiot.java.service.DeviceCodeService;
+import aiot.java.util.StringFilterUtils;
 import aiot.java.web.rest.errors.BadRequestAlertException;
 import aiot.java.service.dto.DeviceCodeDTO;
 import aiot.java.service.dto.DeviceCodeCriteria;
@@ -99,6 +100,23 @@ public class DeviceCodeResource {
     @GetMapping("/device-codes")
     public ResponseEntity<List<DeviceCodeDTO>> getAllDeviceCodes(DeviceCodeCriteria criteria, Pageable pageable) {
         log.debug("REST request to get DeviceCodes by criteria: {}", criteria);
+        Page<DeviceCodeDTO> page = deviceCodeQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code POST  /device-codes} : Search deviceCode.
+     *
+     * @param deviceCodeDTO the deviceCodeDTO to search.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new deviceCodeDTO, or with status {@code 400 (Bad Request)} if the deviceCode has already an ID.
+     *
+     */
+    @PostMapping("/device-codes/search")
+    public ResponseEntity<List<DeviceCodeDTO>> searchDeviceCode(@RequestBody DeviceCodeDTO deviceCodeDTO, DeviceCodeCriteria criteria, Pageable pageable) {
+        log.debug("REST request to save DeviceCode : {}", deviceCodeDTO);
+        criteria.setDviCode(StringFilterUtils.toContainStringFilter(deviceCodeDTO.getDviCode()));
+        criteria.setDviName(StringFilterUtils.toContainStringFilter(deviceCodeDTO.getDviName()));
         Page<DeviceCodeDTO> page = deviceCodeQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());

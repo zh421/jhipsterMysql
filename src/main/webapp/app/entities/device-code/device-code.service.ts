@@ -6,7 +6,7 @@ import * as moment from 'moment';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
-import { IDeviceCode } from 'app/shared/model/device-code.model';
+import { DeviceCode, IDeviceCode } from 'app/shared/model/device-code.model';
 
 type EntityResponseType = HttpResponse<IDeviceCode>;
 type EntityArrayResponseType = HttpResponse<IDeviceCode[]>;
@@ -41,6 +41,12 @@ export class DeviceCodeService {
     const options = createRequestOption(req);
     return this.http
       .get<IDeviceCode[]>(this.resourceUrl, { params: options, observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
+
+  search(req?: any, deviceCode?: DeviceCode): Observable<EntityArrayResponseType> {
+    return this.http
+      .post<IDeviceCode[]>(this.resourceUrl + '/search', deviceCode, { observe: 'response' })
       .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
   }
 

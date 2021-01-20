@@ -5,11 +5,12 @@ import { Subscription } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { IDeviceCode } from 'app/shared/model/device-code.model';
+import { DeviceCode, IDeviceCode } from 'app/shared/model/device-code.model';
 
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { DeviceCodeService } from './device-code.service';
 import { DeviceCodeDeleteDialogComponent } from './device-code-delete-dialog.component';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'jhi-device-code',
@@ -17,6 +18,7 @@ import { DeviceCodeDeleteDialogComponent } from './device-code-delete-dialog.com
 })
 export class DeviceCodeComponent implements OnInit, OnDestroy {
   deviceCodes?: IDeviceCode[];
+  deviceCodeSearch?: DeviceCode;
   eventSubscriber?: Subscription;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
@@ -24,13 +26,18 @@ export class DeviceCodeComponent implements OnInit, OnDestroy {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
+  searchForm = this.fb.group({
+    dviCode: [],
+    dviName: []
+  });
 
   constructor(
     protected deviceCodeService: DeviceCodeService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    private fb: FormBuilder
   ) {}
 
   loadPage(page?: number): void {
@@ -72,6 +79,33 @@ export class DeviceCodeComponent implements OnInit, OnDestroy {
 
   registerChangeInDeviceCodes(): void {
     this.eventSubscriber = this.eventManager.subscribe('deviceCodeListModification', () => this.loadPage());
+  }
+  // 查詢
+  searchButton(page?: number): void {
+    this.deviceCodeSearch = new DeviceCode();
+    this.deviceCodeSearch.dviCode = this.searchForm.get('dviCode')!.value;
+    this.deviceCodeSearch.dviName = this.searchForm.get('dviName')!.value;
+    this.search(page);
+  }
+
+  search(page?: number): void {
+    const pageToLoad: number = page ? page : this.page;
+    if (page === 1) {
+      this.ngbPaginationPage = 1;
+    }
+    this.deviceCodeService
+      .search(
+        {
+          page: pageToLoad - 1,
+          size: this.itemsPerPage,
+          sort: this.sort()
+        },
+        this.deviceCodeSearch
+      )
+      .subscribe(
+        (res: HttpResponse<IDeviceCode[]>) => this.onSuccess(res.body, res.headers, pageToLoad),
+        () => this.onError()
+      );
   }
 
   delete(deviceCode: IDeviceCode): void {
