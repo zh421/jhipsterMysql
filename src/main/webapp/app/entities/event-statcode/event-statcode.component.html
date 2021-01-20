@@ -9,7 +9,23 @@
             </span>
         </button>
     </h2>
-
+    <br>
+    <div [formGroup]="searchForm">
+        <div>
+            <span jhiTranslate="aIoTapplicationApp.eventStatcode.esCode">Es Code: </span>
+            <input type="text" formControlName="esCode"/>
+        </div>
+        <br>
+        <div>
+            <span jhiTranslate="aIoTapplicationApp.eventStatcode.esName">Es Name: </span>
+            <input type="text" formControlName="esName"/>
+        </div>
+    </div>
+    <br>
+    <div>
+        <button (click)="searchButton(1)">查詢</button>
+    </div>
+    <br>
     <jhi-alert-error></jhi-alert-error>
 
     <jhi-alert></jhi-alert>
@@ -25,10 +41,10 @@
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="esCode"><span jhiTranslate="aIoTapplicationApp.eventStatcode.esCode">Es Code</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="esName"><span jhiTranslate="aIoTapplicationApp.eventStatcode.esName">Es Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="esCretime"><span jhiTranslate="aIoTapplicationApp.eventStatcode.esCretime">Es Cretime</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="esCreid"><span jhiTranslate="aIoTapplicationApp.eventStatcode.esCreid">Es Creid</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="esModtime"><span jhiTranslate="aIoTapplicationApp.eventStatcode.esModtime">Es Modtime</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="esModid"><span jhiTranslate="aIoTapplicationApp.eventStatcode.esModid">Es Modid</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="esCretime"><span jhiTranslate="aIoTapplicationApp.eventStatcode.esCretime">Es Cretime</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="esCreid"><span jhiTranslate="aIoTapplicationApp.eventStatcode.esCreid">Es Creid</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="esModtime"><span jhiTranslate="aIoTapplicationApp.eventStatcode.esModtime">Es Modtime</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="esModid"><span jhiTranslate="aIoTapplicationApp.eventStatcode.esModid">Es Modid</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -37,10 +53,10 @@
                     <td><a [routerLink]="['/event-statcode', eventStatcode.id, 'view']">{{ eventStatcode.id }}</a></td>
                     <td>{{ eventStatcode.esCode }}</td>
                     <td>{{ eventStatcode.esName }}</td>
-                    <td>{{ eventStatcode.esCretime | date:'medium' }}</td>
-                    <td>{{ eventStatcode.esCreid }}</td>
-                    <td>{{ eventStatcode.esModtime | date:'medium' }}</td>
-                    <td>{{ eventStatcode.esModid }}</td>
+<!--                    <td>{{ eventStatcode.esCretime | date:'medium' }}</td>-->
+<!--                    <td>{{ eventStatcode.esCreid }}</td>-->
+<!--                    <td>{{ eventStatcode.esModtime | date:'medium' }}</td>-->
+<!--                    <td>{{ eventStatcode.esModid }}</td>-->
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

@@ -6,7 +6,7 @@ import * as moment from 'moment';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
-import { IEventStatcode } from 'app/shared/model/event-statcode.model';
+import { EventStatcode, IEventStatcode } from 'app/shared/model/event-statcode.model';
 
 type EntityResponseType = HttpResponse<IEventStatcode>;
 type EntityArrayResponseType = HttpResponse<IEventStatcode[]>;
@@ -41,6 +41,12 @@ export class EventStatcodeService {
     const options = createRequestOption(req);
     return this.http
       .get<IEventStatcode[]>(this.resourceUrl, { params: options, observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
+
+  search(req?: any, eventInter?: EventStatcode): Observable<EntityArrayResponseType> {
+    return this.http
+      .post<IEventStatcode[]>(this.resourceUrl + '/search', eventInter, { observe: 'response' })
       .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
   }
 

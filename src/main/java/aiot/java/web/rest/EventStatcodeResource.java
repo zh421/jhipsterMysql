@@ -1,6 +1,7 @@
 package aiot.java.web.rest;
 
 import aiot.java.service.EventStatcodeService;
+import aiot.java.util.StringFilterUtils;
 import aiot.java.web.rest.errors.BadRequestAlertException;
 import aiot.java.service.dto.EventStatcodeDTO;
 import aiot.java.service.dto.EventStatcodeCriteria;
@@ -99,6 +100,23 @@ public class EventStatcodeResource {
     @GetMapping("/event-statcodes")
     public ResponseEntity<List<EventStatcodeDTO>> getAllEventStatcodes(EventStatcodeCriteria criteria, Pageable pageable) {
         log.debug("REST request to get EventStatcodes by criteria: {}", criteria);
+        Page<EventStatcodeDTO> page = eventStatcodeQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code POST  /device-codes} : Search deviceCode.
+     *
+     * @param eventStatcodeDTO the eventStatcodeDTO to search.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new deviceCodeDTO, or with status {@code 400 (Bad Request)} if the deviceCode has already an ID.
+     *
+     */
+    @PostMapping("/event-statcodes/search")
+    public ResponseEntity<List<EventStatcodeDTO>> searchDeviceCode(@RequestBody EventStatcodeDTO eventStatcodeDTO, EventStatcodeCriteria criteria, Pageable pageable) {
+        log.debug("REST request to save DeviceCode : {}", eventStatcodeDTO);
+        criteria.setEsCode(StringFilterUtils.toContainStringFilter(eventStatcodeDTO.getEsCode()));
+        criteria.setEsName(StringFilterUtils.toContainStringFilter(eventStatcodeDTO.getEsName()));
         Page<EventStatcodeDTO> page = eventStatcodeQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());

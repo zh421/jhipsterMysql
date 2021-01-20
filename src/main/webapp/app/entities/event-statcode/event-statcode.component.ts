@@ -5,11 +5,12 @@ import { Subscription } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { IEventStatcode } from 'app/shared/model/event-statcode.model';
+import { EventStatcode, IEventStatcode } from 'app/shared/model/event-statcode.model';
 
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { EventStatcodeService } from './event-statcode.service';
 import { EventStatcodeDeleteDialogComponent } from './event-statcode-delete-dialog.component';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'jhi-event-statcode',
@@ -17,6 +18,7 @@ import { EventStatcodeDeleteDialogComponent } from './event-statcode-delete-dial
 })
 export class EventStatcodeComponent implements OnInit, OnDestroy {
   eventStatcodes?: IEventStatcode[];
+  eventStatcodeSearch?: EventStatcode;
   eventSubscriber?: Subscription;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
@@ -24,13 +26,18 @@ export class EventStatcodeComponent implements OnInit, OnDestroy {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
+  searchForm = this.fb.group({
+    esCode: [],
+    esName: []
+  });
 
   constructor(
     protected eventStatcodeService: EventStatcodeService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    private fb: FormBuilder
   ) {}
 
   loadPage(page?: number): void {
@@ -72,6 +79,34 @@ export class EventStatcodeComponent implements OnInit, OnDestroy {
 
   registerChangeInEventStatcodes(): void {
     this.eventSubscriber = this.eventManager.subscribe('eventStatcodeListModification', () => this.loadPage());
+  }
+
+  // 查詢
+  searchButton(page?: number): void {
+    this.eventStatcodeSearch = new EventStatcode();
+    this.eventStatcodeSearch.esCode = this.searchForm.get('esCode')!.value;
+    this.eventStatcodeSearch.esName = this.searchForm.get('esName')!.value;
+    this.search(page);
+  }
+
+  search(page?: number): void {
+    const pageToLoad: number = page ? page : this.page;
+    if (page === 1) {
+      this.ngbPaginationPage = 1;
+    }
+    this.eventStatcodeService
+      .search(
+        {
+          page: pageToLoad - 1,
+          size: this.itemsPerPage,
+          sort: this.sort()
+        },
+        this.eventStatcodeSearch
+      )
+      .subscribe(
+        (res: HttpResponse<IEventStatcode[]>) => this.onSuccess(res.body, res.headers, pageToLoad),
+        () => this.onError()
+      );
   }
 
   delete(eventStatcode: IEventStatcode): void {
