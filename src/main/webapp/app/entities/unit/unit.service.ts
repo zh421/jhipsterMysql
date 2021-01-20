@@ -6,7 +6,7 @@ import * as moment from 'moment';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
-import { IUnit } from 'app/shared/model/unit.model';
+import { IUnit, Unit } from 'app/shared/model/unit.model';
 
 type EntityResponseType = HttpResponse<IUnit>;
 type EntityArrayResponseType = HttpResponse<IUnit[]>;
@@ -41,6 +41,12 @@ export class UnitService {
     const options = createRequestOption(req);
     return this.http
       .get<IUnit[]>(this.resourceUrl, { params: options, observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
+
+  search(req?: any, unit?: Unit): Observable<EntityArrayResponseType> {
+    return this.http
+      .post<IUnit[]>(this.resourceUrl + '/search', unit, { observe: 'response' })
       .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
   }
 

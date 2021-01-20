@@ -1,6 +1,7 @@
 package aiot.java.web.rest;
 
 import aiot.java.service.UnitService;
+import aiot.java.util.StringFilterUtils;
 import aiot.java.web.rest.errors.BadRequestAlertException;
 import aiot.java.service.dto.UnitDTO;
 import aiot.java.service.dto.UnitCriteria;
@@ -99,6 +100,24 @@ public class UnitResource {
     @GetMapping("/units")
     public ResponseEntity<List<UnitDTO>> getAllUnits(UnitCriteria criteria, Pageable pageable) {
         log.debug("REST request to get Units by criteria: {}", criteria);
+        Page<UnitDTO> page = unitQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    /**
+     * {@code POST  /units} : Search by unitDTO.
+     *
+     * @param unitDTO the unitDTO to search.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of units in body.
+     *
+     */
+    @PostMapping("/units/search")
+    public ResponseEntity<List<UnitDTO>> createUnit(@RequestBody UnitDTO unitDTO ,UnitCriteria criteria, Pageable pageable) {
+        log.debug("REST request to save Unit : {}", unitDTO);
+        criteria.setUnitUcCode(StringFilterUtils.toContainStringFilter(unitDTO.getUnitUcCode()));
+        criteria.setUnitName(StringFilterUtils.toContainStringFilter(unitDTO.getUnitName()));
+        criteria.setUnitPic(StringFilterUtils.toContainStringFilter(unitDTO.getUnitPic()));
         Page<UnitDTO> page = unitQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());

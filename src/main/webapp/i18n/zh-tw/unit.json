@@ -16,7 +16,7 @@
       "detail": {
         "title": "單位基本資料(details)"
       },
-      "unitUcCode": "單位類別代碼",
+      "unitUcCode": "單位類別",
       "unitCode": "單位代碼",
       "unitName": "單位名稱",
       "unitAddr": "單位地址",

@@ -9,7 +9,28 @@
             </span>
         </button>
     </h2>
-
+    <br>
+    <div [formGroup]="searchForm">
+        <div>
+            <span jhiTranslate="aIoTapplicationApp.unit.unitUcCode">Unit Uc Code: </span>
+            <input type="text" formControlName="unitUcCode"/>
+        </div>
+        <br>
+        <div>
+            <span jhiTranslate="aIoTapplicationApp.unit.unitName">Unit Name: </span>
+            <input type="text" formControlName="unitName"/>
+        </div>
+        <br>
+        <div>
+            <span jhiTranslate="aIoTapplicationApp.unit.unitPic">Unit Pic: </span>
+            <input type="text" formControlName="unitPic"/>
+        </div>
+    </div>
+    <br>
+    <div>
+        <button (click)="searchButton(1)">查詢</button>
+    </div>
+    <br>
     <jhi-alert-error></jhi-alert-error>
 
     <jhi-alert></jhi-alert>
@@ -24,20 +45,20 @@
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="unitUcCode"><span jhiTranslate="aIoTapplicationApp.unit.unitUcCode">Unit Uc Code</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="unitCode"><span jhiTranslate="aIoTapplicationApp.unit.unitCode">Unit Code</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="unitCode"><span jhiTranslate="aIoTapplicationApp.unit.unitCode">Unit Code</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"  jhiSortBy="unitName"><span jhiTranslate="aIoTapplicationApp.unit.unitName">Unit Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="unitAddr"><span jhiTranslate="aIoTapplicationApp.unit.unitAddr">Unit Addr</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="unitLongitude"><span jhiTranslate="aIoTapplicationApp.unit.unitLongitude">Unit Longitude</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="unitLatitude"><span jhiTranslate="aIoTapplicationApp.unit.unitLatitude">Unit Latitude</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="unitAddr"><span jhiTranslate="aIoTapplicationApp.unit.unitAddr">Unit Addr</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="unitLongitude"><span jhiTranslate="aIoTapplicationApp.unit.unitLongitude">Unit Longitude</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="unitLatitude"><span jhiTranslate="aIoTapplicationApp.unit.unitLatitude">Unit Latitude</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"  jhiSortBy="unitPic"><span jhiTranslate="aIoTapplicationApp.unit.unitPic">Unit Pic</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="unitPhone"><span jhiTranslate="aIoTapplicationApp.unit.unitPhone">Unit Phone</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="unitEmail"><span jhiTranslate="aIoTapplicationApp.unit.unitEmail">Unit Email</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="unitCretime"><span jhiTranslate="aIoTapplicationApp.unit.unitCretime">Unit Cretime</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="unitCreid"><span jhiTranslate="aIoTapplicationApp.unit.unitCreid">Unit Creid</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="unitModtime"><span jhiTranslate="aIoTapplicationApp.unit.unitModtime">Unit Modtime</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="unitModid"><span jhiTranslate="aIoTapplicationApp.unit.unitModid">Unit Modid</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="unitLogip"><span jhiTranslate="aIoTapplicationApp.unit.unitLogip">Unit Logip</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="unitSignDate"><span jhiTranslate="aIoTapplicationApp.unit.unitSignDate">Unit Sign Date</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="unitCretime"><span jhiTranslate="aIoTapplicationApp.unit.unitCretime">Unit Cretime</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="unitCreid"><span jhiTranslate="aIoTapplicationApp.unit.unitCreid">Unit Creid</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="unitModtime"><span jhiTranslate="aIoTapplicationApp.unit.unitModtime">Unit Modtime</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="unitModid"><span jhiTranslate="aIoTapplicationApp.unit.unitModid">Unit Modid</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="unitLogip"><span jhiTranslate="aIoTapplicationApp.unit.unitLogip">Unit Logip</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="unitSignDate"><span jhiTranslate="aIoTapplicationApp.unit.unitSignDate">Unit Sign Date</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -45,20 +66,20 @@
                 <tr *ngFor="let unit of units ;trackBy: trackId">
                     <td><a [routerLink]="['/unit', unit.id, 'view']">{{ unit.id }}</a></td>
                     <td>{{ unit.unitUcCode }}</td>
-                    <td>{{ unit.unitCode }}</td>
+<!--                    <td>{{ unit.unitCode }}</td>-->
                     <td>{{ unit.unitName }}</td>
-                    <td>{{ unit.unitAddr }}</td>
-                    <td>{{ unit.unitLongitude }}</td>
-                    <td>{{ unit.unitLatitude }}</td>
+<!--                    <td>{{ unit.unitAddr }}</td>-->
+<!--                    <td>{{ unit.unitLongitude }}</td>-->
+<!--                    <td>{{ unit.unitLatitude }}</td>-->
                     <td>{{ unit.unitPic }}</td>
                     <td>{{ unit.unitPhone }}</td>
                     <td>{{ unit.unitEmail }}</td>
-                    <td>{{ unit.unitCretime | date:'medium' }}</td>
-                    <td>{{ unit.unitCreid }}</td>
-                    <td>{{ unit.unitModtime | date:'medium' }}</td>
-                    <td>{{ unit.unitModid }}</td>
-                    <td>{{ unit.unitLogip }}</td>
-                    <td>{{ unit.unitSignDate | date:'medium' }}</td>
+<!--                    <td>{{ unit.unitCretime | date:'medium' }}</td>-->
+<!--                    <td>{{ unit.unitCreid }}</td>-->
+<!--                    <td>{{ unit.unitModtime | date:'medium' }}</td>-->
+<!--                    <td>{{ unit.unitModid }}</td>-->
+<!--                    <td>{{ unit.unitLogip }}</td>-->
+<!--                    <td>{{ unit.unitSignDate | date:'medium' }}</td>-->
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
