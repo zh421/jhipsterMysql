@@ -1,6 +1,7 @@
 package aiot.java.web.rest;
 
 import aiot.java.service.UnitClassService;
+import aiot.java.util.StringFilterUtils;
 import aiot.java.web.rest.errors.BadRequestAlertException;
 import aiot.java.service.dto.UnitClassDTO;
 import aiot.java.service.dto.UnitClassCriteria;
@@ -87,6 +88,23 @@ public class UnitClassResource {
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, unitClassDTO.getId().toString()))
             .body(result);
+    }
+
+    /**
+     * {@code POST  /sensor-codes} : Search by unitClassDTO.
+     *
+     * @param unitClassDTO the sensorCodeDTO to search datas.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new sensorCodeDTO, or with status {@code 400 (Bad Request)} if the sensorCode has already an ID.
+     *
+     */
+    @PostMapping("/unit-classes/search")
+    public ResponseEntity<List<UnitClassDTO>> searchSensorCode(@RequestBody UnitClassDTO unitClassDTO, UnitClassCriteria criteria, Pageable pageable) {
+        log.debug("REST request to save SensorCode : {}", unitClassDTO);
+        criteria.setUcCode(StringFilterUtils.toContainStringFilter(unitClassDTO.getUcCode()));
+        criteria.setUcName(StringFilterUtils.toContainStringFilter(unitClassDTO.getUcName()));
+        Page<UnitClassDTO> page = unitClassQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
     /**

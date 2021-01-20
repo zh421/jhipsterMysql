@@ -9,7 +9,23 @@
             </span>
         </button>
     </h2>
-
+    <br>
+    <div [formGroup]="searchForm">
+        <div>
+            <span jhiTranslate="aIoTapplicationApp.unitClass.ucCode">Uc Code: </span>
+            <input type="text" formControlName="ucCode"/>
+        </div>
+        <br>
+        <div>
+            <span jhiTranslate="aIoTapplicationApp.unitClass.ucName">Uc Name: </span>
+            <input type="text" formControlName="ucName"/>
+        </div>
+    </div>
+    <br>
+    <div>
+        <button (click)="searchButton(1)">查詢</button>
+    </div>
+    <br>
     <jhi-alert-error></jhi-alert-error>
 
     <jhi-alert></jhi-alert>
@@ -25,10 +41,10 @@
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="ucCode"><span jhiTranslate="aIoTapplicationApp.unitClass.ucCode">Uc Code</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="ucName"><span jhiTranslate="aIoTapplicationApp.unitClass.ucName">Uc Name</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="ucCretime"><span jhiTranslate="aIoTapplicationApp.unitClass.ucCretime">Uc Cretime</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="ucCreid"><span jhiTranslate="aIoTapplicationApp.unitClass.ucCreid">Uc Creid</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="ucModtime"><span jhiTranslate="aIoTapplicationApp.unitClass.ucModtime">Uc Modtime</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="ucModid"><span jhiTranslate="aIoTapplicationApp.unitClass.ucModid">Uc Modid</span> <fa-icon icon="sort"></fa-icon></th>
+<!--                    <th scope="col"  jhiSortBy="ucCretime"><span jhiTranslate="aIoTapplicationApp.unitClass.ucCretime">Uc Cretime</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="ucCreid"><span jhiTranslate="aIoTapplicationApp.unitClass.ucCreid">Uc Creid</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="ucModtime"><span jhiTranslate="aIoTapplicationApp.unitClass.ucModtime">Uc Modtime</span> <fa-icon icon="sort"></fa-icon></th>-->
+<!--                    <th scope="col"  jhiSortBy="ucModid"><span jhiTranslate="aIoTapplicationApp.unitClass.ucModid">Uc Modid</span> <fa-icon icon="sort"></fa-icon></th>-->
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -37,10 +53,10 @@
                     <td><a [routerLink]="['/unit-class', unitClass.id, 'view']">{{ unitClass.id }}</a></td>
                     <td>{{ unitClass.ucCode }}</td>
                     <td>{{ unitClass.ucName }}</td>
-                    <td>{{ unitClass.ucCretime | date:'medium' }}</td>
-                    <td>{{ unitClass.ucCreid }}</td>
-                    <td>{{ unitClass.ucModtime | date:'medium' }}</td>
-                    <td>{{ unitClass.ucModid }}</td>
+<!--                    <td>{{ unitClass.ucCretime | date:'medium' }}</td>-->
+<!--                    <td>{{ unitClass.ucCreid }}</td>-->
+<!--                    <td>{{ unitClass.ucModtime | date:'medium' }}</td>-->
+<!--                    <td>{{ unitClass.ucModid }}</td>-->
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"

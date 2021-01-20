@@ -5,11 +5,12 @@ import { Subscription } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { IUnitClass } from 'app/shared/model/unit-class.model';
+import { IUnitClass, UnitClass } from 'app/shared/model/unit-class.model';
 
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { UnitClassService } from './unit-class.service';
 import { UnitClassDeleteDialogComponent } from './unit-class-delete-dialog.component';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'jhi-unit-class',
@@ -17,6 +18,7 @@ import { UnitClassDeleteDialogComponent } from './unit-class-delete-dialog.compo
 })
 export class UnitClassComponent implements OnInit, OnDestroy {
   unitClasses?: IUnitClass[];
+  unitClasseSearch?: UnitClass;
   eventSubscriber?: Subscription;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
@@ -24,13 +26,18 @@ export class UnitClassComponent implements OnInit, OnDestroy {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
+  searchForm = this.fb.group({
+    ucCode: [],
+    ucName: []
+  });
 
   constructor(
     protected unitClassService: UnitClassService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
     protected eventManager: JhiEventManager,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    private fb: FormBuilder
   ) {}
 
   loadPage(page?: number): void {
@@ -72,6 +79,34 @@ export class UnitClassComponent implements OnInit, OnDestroy {
 
   registerChangeInUnitClasses(): void {
     this.eventSubscriber = this.eventManager.subscribe('unitClassListModification', () => this.loadPage());
+  }
+
+  // 查詢
+  searchButton(page?: number): void {
+    this.unitClasseSearch = new UnitClass();
+    this.unitClasseSearch.ucCode = this.searchForm.get('ucCode')!.value;
+    this.unitClasseSearch.ucName = this.searchForm.get('ucName')!.value;
+    this.search(page);
+  }
+
+  search(page?: number): void {
+    const pageToLoad: number = page ? page : this.page;
+    if (page === 1) {
+      this.ngbPaginationPage = 1;
+    }
+    this.unitClassService
+      .search(
+        {
+          page: pageToLoad - 1,
+          size: this.itemsPerPage,
+          sort: this.sort()
+        },
+        this.unitClasseSearch
+      )
+      .subscribe(
+        (res: HttpResponse<IUnitClass[]>) => this.onSuccess(res.body, res.headers, pageToLoad),
+        () => this.onError()
+      );
   }
 
   delete(unitClass: IUnitClass): void {
